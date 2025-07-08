@@ -1,0 +1,32 @@
+:root {
+  --ms-blue: #0078d4;
+  --ms-light-blue: #e5f1fb;
+  --ms-dark-blue: #005a9e;
+  --ms-green: #107c10;
+  --ms-light-green: #e8f5e8;
+  --ms-orange: #ff8c00;
+  --ms-light-orange: #fff4e6;
+  --ms-purple: #5c2d91;
+  --ms-light-purple: #f3efff;
+  --ms-gray: #f3f2f1;
+  --ms-dark-gray: #201f1e;
+  --ms-font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--ms-font);
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  color: var(--ms-dark-gray);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.App {
+  min-height: 100vh;
+}

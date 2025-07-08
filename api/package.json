@@ -1,0 +1,19 @@
+{
+  "name": "agent-governance-api",
+  "version": "1.0.0",
+  "description": "Azure Functions API for Agent Governance Dashboard",
+  "main": "dist/generate-report/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc",
+    "start": "func start"
+  },
+  "dependencies": {
+    "@azure/functions": "^4.7.3-beta.0",
+    "@azure/openai": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.10",
+    "typescript": "^5.7.3"
+  }
+}
