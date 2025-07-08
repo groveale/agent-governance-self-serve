@@ -3,8 +3,8 @@
   "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     "FUNCTIONS_WORKER_RUNTIME": "node",
-    "AZURE_OPENAI_ENDPOINT": "https://your-openai-instance.openai.azure.com",
-    "AZURE_OPENAI_API_KEY": "your-api-key-here",
-    "AZURE_OPENAI_DEPLOYMENT_NAME": "gpt-35-turbo"
+    "AZURE_OPENAI_ENDPOINT": "https://openaiag-pg.openai.azure.com/",
+    "AZURE_OPENAI_API_KEY": "ed5c9de84bed4b108e53dd402f18ac8d",
+    "AZURE_OPENAI_DEPLOYMENT_NAME": "gpt-4.1"
   }
 }

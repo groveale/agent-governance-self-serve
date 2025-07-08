@@ -193,38 +193,6 @@ export function ReportPanel({ reportData }: ReportPanelProps) {
           </div>
         </div>
 
-        {reportData.missingItems.length > 0 && (
-          <div className="missing-items">
-            <h4>Outstanding Items ({reportData.missingItems.length})</h4>
-            <div className="missing-items-grid">
-              {['high', 'medium', 'low', 'optional'].map(priority => {
-                const items = reportData.missingItems.filter(item => item.priority === priority);
-                if (items.length === 0) return null;
-                
-                return (
-                  <div key={priority} className={`priority-group ${priority}`}>
-                    <h5>{priority.charAt(0).toUpperCase() + priority.slice(1)} Priority ({items.length})</h5>
-                    <ul>
-                      {items.map(item => (
-                        <li key={item.id}>{item.text}</li>
-                      ))}
-                    </ul>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
-
-        <div className="recommendations">
-          <h4>Recommendations</h4>
-          <ul>
-            {reportData.recommendations.map((rec, index) => (
-              <li key={index}>{rec}</li>
-            ))}
-          </ul>
-        </div>
-
         {aiReport && (
           <div className="ai-report">
             <h4>AI Analysis</h4>
@@ -259,6 +227,40 @@ export function ReportPanel({ reportData }: ReportPanelProps) {
             </div>
           </div>
         )}
+
+        {reportData.missingItems.length > 0 && (
+          <div className="missing-items">
+            <h4>Outstanding Items ({reportData.missingItems.length})</h4>
+            <div className="missing-items-grid">
+              {['high', 'medium', 'low', 'optional'].map(priority => {
+                const items = reportData.missingItems.filter(item => item.priority === priority);
+                if (items.length === 0) return null;
+                
+                return (
+                  <div key={priority} className={`priority-group ${priority}`}>
+                    <h5>{priority.charAt(0).toUpperCase() + priority.slice(1)} Priority ({items.length})</h5>
+                    <ul>
+                      {items.map(item => (
+                        <li key={item.id}>{item.text}</li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        <div className="recommendations">
+          <h4>Recommendations</h4>
+          <ul>
+            {reportData.recommendations.map((rec, index) => (
+              <li key={index}>{rec}</li>
+            ))}
+          </ul>
+        </div>
+
+        
       </div>
     </div>
   );
