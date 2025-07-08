@@ -14,7 +14,9 @@ interface GovernanceStore extends AssessmentState {
   aiReport: AIReportResponse | null;
   isGeneratingReport: boolean;
   reportError: string | null;
-  generateAIReport: (organizationInfo?: { name?: string; size?: string; industry?: string }) => Promise<void>;
+  generateAIReport: (
+    organizationInfo?: { name?: string; size?: string; industry?: string }
+  ) => Promise<void>;
 }
 
 const calculatePhaseProgress = (sections: typeof governanceSections, completedItems: Set<string>) => {
@@ -131,8 +133,9 @@ export const useGovernanceStore = create<GovernanceStore>()(
         };
       },
 
-      generateAIReport: async (organizationInfo) => {
+      generateAIReport: async (organizationInfo?: { name?: string; size?: string; industry?: string }) => {
         const state = get();
+        const reportData = get().getReportData();
         set({ isGeneratingReport: true, reportError: null });
 
         try {
@@ -152,6 +155,12 @@ export const useGovernanceStore = create<GovernanceStore>()(
                 sections: state.sections,
                 completedItems: Array.from(state.completedItems),
                 lastUpdated: state.lastUpdated,
+              },
+              reportData: {
+                totalItems: reportData.totalItems,
+                completedItems: reportData.completedItems,
+                completionPercentage: reportData.completionPercentage,
+                missingItems: reportData.missingItems,
               },
               organizationInfo,
             }),
